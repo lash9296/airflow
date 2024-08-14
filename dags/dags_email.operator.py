@@ -11,7 +11,7 @@ with DAG(
 ) as dag:
     send_email_task = EmailOperator(
         task_id = 'send_email_task',
-        to = 'tjrrjwu92@gmail.com',
+        to = 'tjrrjwu92@naver.com', # 보내는 메일
         # cc = 참조메일
         subject= 'Airflow 성공 메일',
         html_content= 'Airflow 작업이 완료되었습니다.'
