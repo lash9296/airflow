@@ -2,7 +2,7 @@ from airflow import DAG
 import pendulum
 from airflow.operators.python import PythonOperator
 import random
-from common.common_func import ger_sftp
+from common.common_func import get_sftp
 
 with DAG(
     dag_id="dags_python_import_func",
@@ -13,5 +13,5 @@ with DAG(
 
     task_get_sftp = PythonOperator(
         task_id = 'task_get_sftp',
-        python_callable = ger_sftp 
+        python_callable = get_sftp 
     )
