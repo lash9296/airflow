@@ -16,5 +16,4 @@ with DAG(
     t2 = EmptyOperator(
         task_id = 't2'
     )
-    t1 >> t2 >> t1
-    
+    t1 >> t2
