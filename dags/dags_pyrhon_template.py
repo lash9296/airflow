@@ -11,7 +11,7 @@ with DAG(
     catchup=False,  # 과거 실행을 무시(테스트)
 ) as dag: 
     
-    def python_function1(start_date, end_date, **kwargs):
+    def python_function1(start_date, end_date, **kwargs):# op_kwargs에 변수를 직접 줘서 긁어오는 방식
         print(start_date)
         print(end_date)
     
@@ -21,7 +21,7 @@ with DAG(
         op_kwargs={'start_date' : '{{data_interval_start | ds}}', 'end_date' : '{{data_interval_end | ds}}'}
     )
 
-    @task(task_id = 'python_2')
+    @task(task_id = 'python_2')# kwargs에서 꺼내쓰는 방식
     def python_function2(**kwargs):
         print(kwargs)
         print('ds' + kwargs['ds'])
